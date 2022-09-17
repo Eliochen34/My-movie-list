@@ -7,6 +7,7 @@ let movies = JSON.parse(localStorage.getItem('favoriteMovies')) || []
 const dataPanel = document.querySelector('#data-panel')
 const searchForm = document.querySelector('#search-form')
 const searchInput = document.querySelector('#search-input')
+const MOVIES_PER_PAGE = 12;
 
 
 // functions
@@ -72,9 +73,9 @@ function renderPaginator(amount) {
 }
 
 function getMoviesByPage(page) {
-  const data = filteredMovies.length ? filteredMovies : movies
+  // const data = filteredMovies.length ? filteredMovies : movies
   const startIndex = (page - 1) * MOVIES_PER_PAGE
-  return data.slice(startIndex, startIndex + MOVIES_PER_PAGE)
+  return movies.slice(startIndex, startIndex + MOVIES_PER_PAGE)
 }
 
 // 監聽器
@@ -91,5 +92,5 @@ dataPanel.addEventListener("click", function onPanelClick(event) {
 
 
 
-showMovieList(movies)
+showMovieList(getMoviesByPage(1))
 renderPaginator(movies.length)

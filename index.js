@@ -29,7 +29,7 @@ function renderMovieCard(data) {
             <div class="card-body">
               <h5 class="card-title">${item.title}</h5>
             </div>
-            <div class="card-footer">
+            <div class="card-footer data-id="${item.id}">
               <button class="btn btn-primary btn-show-movie" data-bs-toggle="modal" data-bs-target="#movie-modal" data-id="${item.id
         }">More</button>
               <button class="btn btn-info btn-add-favorite" data-id="${item.id
